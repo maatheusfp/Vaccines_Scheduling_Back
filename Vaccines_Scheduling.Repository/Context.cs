@@ -5,7 +5,7 @@ namespace Vaccines_Scheduling.Repository
 {
     public class Context : DbContext
     {
-        public DbSet<Patient> Usuario { get; set; }
+        public DbSet<Patient> Patient { get; set; }
         public Context(DbContextOptions<Context> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -15,5 +15,6 @@
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Vaccines_Scheduling.Entity\Vaccines_Scheduling.Entity.csproj" />
+	  <ProjectReference Include="..\Vaccines_Scheduling.Repository.Interface\Vaccines_Scheduling.Repository.Interface.csproj" />
 	</ItemGroup>
 </Project>
