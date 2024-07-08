@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccines_Scheduling.Entity.Entities
 {
-    public class Appointment : IdEntidade<int>
+    public class Appointment : IdEntity<int>
     {
         public DateOnly AppointmentDate {  get; set; }
         public TimeOnly AppointmentTime { get; set; }

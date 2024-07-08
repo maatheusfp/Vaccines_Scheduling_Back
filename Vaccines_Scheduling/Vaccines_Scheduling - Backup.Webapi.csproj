@@ -25,5 +25,4 @@
 	  <ProjectReference Include="..\Vaccines_Scheduling.Utility\Vaccines_Scheduling.Utility.csproj" />
 	</ItemGroup>
 
-
 </Project>

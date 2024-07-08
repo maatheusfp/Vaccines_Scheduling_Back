@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccines_Scheduling.Entity.Entities
 {
-    public abstract class IdEntidade<T> : IEntidade
+    public abstract class IdEntity<T> : IEntity
     {
         public T Id { get; set; }
     }

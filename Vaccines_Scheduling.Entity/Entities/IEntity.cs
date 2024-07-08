@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaccines_Scheduling.Entity.Entities
 {
-    public interface IEntidade
+    public interface IEntity
     {
     }
 }

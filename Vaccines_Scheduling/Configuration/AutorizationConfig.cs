@@ -8,15 +8,15 @@ namespace Vaccines_Scheduling.Configuration
 {
     public static class AutorizationConfig
     {
-        public static void AddAuthConfig(this IServiceCollection services, IConfiguration configuracao)
+        public static void AddAutorizationConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            var autenticacaoConfig = new AuthConfig
+            var authConfig = new AuthConfig
             {
-                Issuer = configuracao["Authorization:Issuer"],
-                Audience = configuracao["Authorization:Audience"],
-                SecretKey = configuracao["Authorization:SecretKey"],
-                AccessTokenExpiration = int.Parse(configuracao["Authorization:AccessTokenExpiration"]),
-                RefreshTokenExpiration = int.Parse(configuracao["Authorization:RefreshTokenExpiration"]),
+                Issuer = configuration["Authorization:Issuer"],
+                Audience = configuration["Authorization:Audience"],
+                SecretKey = configuration["Authorization:SecretKey"],
+                AccessTokenExpiration = int.Parse(configuration["Authorization:AccessTokenExpiration"]),
+                RefreshTokenExpiration = int.Parse(configuration["Authorization:RefreshTokenExpiration"]),
             };
 
 
@@ -34,13 +34,13 @@ namespace Vaccines_Scheduling.Configuration
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
                             ValidateIssuer = true,
-                            ValidIssuer = autenticacaoConfig.Issuer,
+                            ValidIssuer = authConfig.Issuer,
 
                             ValidateAudience = true,
-                            ValidAudience = autenticacaoConfig.Audience,
+                            ValidAudience = authConfig.Audience,
 
                             ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(autenticacaoConfig.SecretKey)),
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfig.SecretKey)),
 
                             RequireExpirationTime = true,
                             ValidateLifetime = true,

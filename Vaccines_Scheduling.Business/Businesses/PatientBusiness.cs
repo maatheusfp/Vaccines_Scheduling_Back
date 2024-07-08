@@ -51,7 +51,8 @@ namespace Vaccines_Scheduling.Business.Businesses
         public async Task<List<PatientDTO>> InsertPatient(PatientSignUpModel newPatient)
         {
             var patient = await _patientRepository.GetPatient(newPatient.Login);
-            if (patient == null)
+
+            if (patient != null)
             {
                 throw new NotImplementedException();
             }

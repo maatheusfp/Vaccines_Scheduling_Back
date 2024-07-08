@@ -8,12 +8,10 @@ using Vaccines_Scheduling.Entity.Entities;
 
 namespace Vaccines_Scheduling.Repository.Interface.IRepositories
 {
-    public interface IPatientRepository
+    public interface IPatientRepository : IBaseRepository<Patient>
     {
-        Task<Patient> GetPatient(string login);
+        Task<Patient> GetPatient(string login, bool asNoTracking = false);
         Task<List<PatientDTO>> ListPatient(string login);
         Task<List<PatientDTO>> GetAll();
-        Task Insert(Patient patient);
-        Task Delete(Patient patient);
     }
 }

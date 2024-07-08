@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Vaccines_Scheduling.Configuration;
+using Vaccines_Scheduling.Webapi.Middleware;
 
 namespace Vaccines_Scheduling
 {
@@ -22,7 +23,7 @@ namespace Vaccines_Scheduling
 
             //services.AddFluentConfiguration();
 
-            //services.AddAutorizacaoConfiguration(Configuracao);
+            services.AddAutorizationConfig(Configuration);
 
             services.AddSwaggerGen(c =>
             {
@@ -67,7 +68,7 @@ namespace Vaccines_Scheduling
             app.UseAuthorization();
 
             //app.UseMiddleware<ApiMiddleware>();
-            //app.UseMiddleware<UsuarioContextoMiddleware>();
+            app.UseMiddleware<PatientContextMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
