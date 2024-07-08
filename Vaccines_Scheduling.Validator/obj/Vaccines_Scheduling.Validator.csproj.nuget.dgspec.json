@@ -4,6 +4,208 @@
     "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Validator\\Vaccines_Scheduling.Validator.csproj": {}
   },
   "projects": {
+    "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj",
+        "projectName": "Vaccines_Scheduling.Entity",
+        "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj",
+        "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj",
+        "projectName": "Vaccines_Scheduling.Repository",
+        "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj",
+        "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj": {
+                "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.30, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.30, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.30, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj",
+        "projectName": "Vaccines_Scheduling.Utility",
+        "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj",
+        "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Validator\\Vaccines_Scheduling.Validator.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -97,7 +299,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj": {
+                "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj"
+              },
+              "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj": {
+                "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

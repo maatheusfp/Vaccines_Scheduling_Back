@@ -14,4 +14,9 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.29" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Vaccines_Scheduling.Repository\Vaccines_Scheduling.Repository.csproj" />
+	  <ProjectReference Include="..\Vaccines_Scheduling.Utility\Vaccines_Scheduling.Utility.csproj" />
+	</ItemGroup>
+
 </Project>

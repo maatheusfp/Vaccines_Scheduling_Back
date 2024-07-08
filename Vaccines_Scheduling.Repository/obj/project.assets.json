@@ -968,6 +968,16 @@
             "rid": "win"
           }
         }
+      },
+      "Vaccines_Scheduling.Entity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Entity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Entity.dll": {}
+        }
       }
     }
   },
@@ -2581,6 +2591,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Vaccines_Scheduling.Entity/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Entity/Vaccines_Scheduling.Entity.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Entity/Vaccines_Scheduling.Entity.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2588,7 +2603,8 @@
       "Microsoft.Data.SqlClient >= 5.2.0",
       "Microsoft.EntityFrameworkCore >= 6.0.30",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.30",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.30"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.30",
+      "Vaccines_Scheduling.Entity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2617,7 +2633,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj": {
+              "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Entity\\Vaccines_Scheduling.Entity.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
