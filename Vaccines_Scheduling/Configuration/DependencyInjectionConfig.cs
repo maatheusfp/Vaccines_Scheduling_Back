@@ -29,6 +29,7 @@ namespace Vaccines_Scheduling.Configuration
 
         private static void InjectBusiness(IServiceCollection services)
         {
+            services.AddScoped<IAuthenticationBusiness, AuthenticationBusiness>();
             services.AddScoped<IPatientBusiness, PatientBusiness>();
         }
 

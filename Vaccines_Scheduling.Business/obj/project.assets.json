@@ -388,6 +388,16 @@
         "runtime": {
           "bin/placeholder/Vaccines_Scheduling.Repository.Interface.dll": {}
         }
+      },
+      "Vaccines_Scheduling.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Utility.dll": {}
+        }
       }
     }
   },
@@ -1175,6 +1185,11 @@
       "type": "project",
       "path": "../Vaccines_Scheduling.Repository.Interface/Vaccines_Scheduling.Repository.Interface.csproj",
       "msbuildProject": "../Vaccines_Scheduling.Repository.Interface/Vaccines_Scheduling.Repository.Interface.csproj"
+    },
+    "Vaccines_Scheduling.Utility/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Utility/Vaccines_Scheduling.Utility.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Utility/Vaccines_Scheduling.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1183,6 +1198,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "Vaccines_Scheduling.Business.Interface >= 1.0.0",
       "Vaccines_Scheduling.Repository.Interface >= 1.0.0",
+      "Vaccines_Scheduling.Utility >= 1.0.0",
       "log4net >= 2.0.17"
     ]
   },
@@ -1218,6 +1234,9 @@
             },
             "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository.Interface\\Vaccines_Scheduling.Repository.Interface.csproj": {
               "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository.Interface\\Vaccines_Scheduling.Repository.Interface.csproj"
+            },
+            "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj": {
+              "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Utility\\Vaccines_Scheduling.Utility.csproj"
             }
           }
         }

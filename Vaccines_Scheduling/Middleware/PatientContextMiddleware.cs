@@ -33,7 +33,7 @@ namespace Vaccines_Scheduling.Webapi.Middleware
             }
             else
             {
-                throw new UnauthorizedAccessException("Usuário não autorizado");
+                throw new UnauthorizedAccessException("Patient Not Found");
             }
         }
         private static JwtSecurityToken GetSecurityToken(HttpContext context)

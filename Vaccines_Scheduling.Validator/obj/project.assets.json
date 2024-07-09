@@ -1176,6 +1176,7 @@
           "Newtonsoft.Json": "13.0.3",
           "Vaccines_Scheduling.Business.Interface": "1.0.0",
           "Vaccines_Scheduling.Repository.Interface": "1.0.0",
+          "Vaccines_Scheduling.Utility": "1.0.0",
           "log4net": "2.0.17"
         },
         "compile": {
@@ -3489,13 +3490,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Ocorreu um erro ao obter os dados de vulnerabilidade do pacote: Não é possível ler os dados da conexão de transporte: Uma conexão estabelecida foi anulada pelo software no computador host."
-    }
-  ]
+  }
 }
