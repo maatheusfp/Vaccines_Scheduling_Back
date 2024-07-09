@@ -11,7 +11,7 @@
 	</ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\Vaccines_Scheduling\Vaccines_Scheduling.csproj" />
+    <ProjectReference Include="..\Vaccines_Scheduling\Vaccines_Scheduling.Webapi.csproj" />
   </ItemGroup>
     
 </Project>

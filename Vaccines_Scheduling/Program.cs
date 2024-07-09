@@ -1,25 +1,30 @@
-var builder = WebApplication.CreateBuilder(args);
+using log4net.Config;
+using log4net;
+using Microsoft.AspNetCore;
+using System.Reflection;
 
-// Add services to the container.
+namespace Vaccines_Scheduling {
+    public static class Program
+    {
+        private static readonly ILog _log = LogManager.GetLogger(typeof(Program));
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+        public static void Main(string[] args)
+        {
+            try
+            {
+                var logRepository = LogManager.GetRepository(Assembly.GetCallingAssembly());
+                XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
 
-var app = builder.Build();
+                _log.Info("Iniciando a API");
+                var webHost = WebHost.CreateDefaultBuilder(args).UseStartup<Startup>();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+                webHost.Build().Run();
+            }
+            catch (Exception ex)
+            {
+                _log.Fatal("Erro fatal", ex);
+                throw;
+            }
+        }
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

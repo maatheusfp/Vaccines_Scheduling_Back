@@ -12,4 +12,9 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.30" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.30" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Vaccines_Scheduling.Entity\Vaccines_Scheduling.Entity.csproj" />
+	  <ProjectReference Include="..\Vaccines_Scheduling.Repository.Interface\Vaccines_Scheduling.Repository.Interface.csproj" />
+	</ItemGroup>
 </Project>

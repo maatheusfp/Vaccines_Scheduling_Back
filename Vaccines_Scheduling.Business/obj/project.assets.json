@@ -352,6 +352,42 @@
             "related": ".xml"
           }
         }
+      },
+      "Vaccines_Scheduling.Business.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Vaccines_Scheduling.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Business.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Business.Interface.dll": {}
+        }
+      },
+      "Vaccines_Scheduling.Entity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Entity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Entity.dll": {}
+        }
+      },
+      "Vaccines_Scheduling.Repository.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Vaccines_Scheduling.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Repository.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Repository.Interface.dll": {}
+        }
       }
     }
   },
@@ -1124,12 +1160,29 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Vaccines_Scheduling.Business.Interface/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Business.Interface/Vaccines_Scheduling.Business.Interface.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Business.Interface/Vaccines_Scheduling.Business.Interface.csproj"
+    },
+    "Vaccines_Scheduling.Entity/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Entity/Vaccines_Scheduling.Entity.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Entity/Vaccines_Scheduling.Entity.csproj"
+    },
+    "Vaccines_Scheduling.Repository.Interface/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Repository.Interface/Vaccines_Scheduling.Repository.Interface.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Repository.Interface/Vaccines_Scheduling.Repository.Interface.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.29",
       "Newtonsoft.Json >= 13.0.3",
+      "Vaccines_Scheduling.Business.Interface >= 1.0.0",
+      "Vaccines_Scheduling.Repository.Interface >= 1.0.0",
       "log4net >= 2.0.17"
     ]
   },
@@ -1159,7 +1212,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Business.Interface\\Vaccines_Scheduling.Business.Interface.csproj": {
+              "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Business.Interface\\Vaccines_Scheduling.Business.Interface.csproj"
+            },
+            "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository.Interface\\Vaccines_Scheduling.Repository.Interface.csproj": {
+              "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository.Interface\\Vaccines_Scheduling.Repository.Interface.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

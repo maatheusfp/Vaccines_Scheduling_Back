@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Vaccines_Scheduling.Entity\Vaccines_Scheduling.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
