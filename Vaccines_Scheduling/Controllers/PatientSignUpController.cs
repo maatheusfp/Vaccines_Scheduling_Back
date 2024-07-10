@@ -9,8 +9,8 @@ namespace Vaccines_Scheduling.Controllers
     [Route("[controller]")]
     public class PatientSignUpController : ControllerBase
     {
-        private readonly IPatientBusiness _patientBusiness;
-        public PatientSignUpController(IPatientBusiness patientBusiness)
+        private readonly IPatientSignUpBusiness _patientBusiness;
+        public PatientSignUpController(IPatientSignUpBusiness patientBusiness)
         {
             _patientBusiness = patientBusiness;
         }

@@ -3,7 +3,7 @@ using Vaccines_Scheduling.Entity.Model;
 
 namespace Vaccines_Scheduling.Business.Interface.IBusiness
 {
-    public interface IPatientBusiness
+    public interface IPatientSignUpBusiness
     {
         Task<List<PatientDTO>> FindPatient(string login);
         Task<List<PatientDTO>> DeletePatient(string login);

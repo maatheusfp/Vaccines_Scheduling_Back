@@ -8,6 +8,7 @@ namespace Vaccines_Scheduling.Repository.Map
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Patient> builder)
         {
             builder.ToTable("tb_paciente");
+            builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Id)
                    .HasColumnName("id_paciente")

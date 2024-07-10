@@ -13,11 +13,11 @@ using Vaccines_Scheduling.Repository.Interface.IRepositories;
 
 namespace Vaccines_Scheduling.Business.Businesses
 {
-    public class PatientBusiness : IPatientBusiness
+    public class PatientSignUpBusiness : IPatientSignUpBusiness
     {   
-        private static readonly ILog _log = LogManager.GetLogger(typeof(PatientBusiness));
-        private readonly IPatientRepository _patientRepository;
-        public PatientBusiness(IPatientRepository patientRepository)
+        private static readonly ILog _log = LogManager.GetLogger(typeof(PatientSignUpBusiness));
+        private readonly IPatientSignUpRepository _patientRepository;
+        public PatientSignUpBusiness(IPatientSignUpRepository patientRepository)
         {
             _patientRepository = patientRepository;
         }
@@ -45,7 +45,7 @@ namespace Vaccines_Scheduling.Business.Businesses
                 throw new NotImplementedException();
             }
 
-            return await _patientRepository.ListPatient(login);  // modificar esse formato de resposta
+            return await _patientRepository.ListPatient(login); 
         }
 
         public async Task<List<PatientDTO>> InsertPatient(PatientSignUpModel newPatient)

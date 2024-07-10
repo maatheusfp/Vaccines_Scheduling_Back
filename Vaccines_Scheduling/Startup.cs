@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Vaccines_Scheduling.Configuration;
+using Vaccines_Scheduling.Webapi.Configuration;
 using Vaccines_Scheduling.Webapi.Middleware;
 
 namespace Vaccines_Scheduling
@@ -15,11 +16,17 @@ namespace Vaccines_Scheduling
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                    .AddJsonOptions(options =>
+                    {
+                        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter());
+                        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH:mm:ss"));
+                    });
 
             services.AddDependencyInjectionConfiguration(Configuration);
 
             services.AddDatabaseConfiguration(Configuration);
+            
 
             //services.AddFluentConfiguration();
 

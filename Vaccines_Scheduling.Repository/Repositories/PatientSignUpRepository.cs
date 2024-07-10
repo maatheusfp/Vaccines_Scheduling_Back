@@ -5,9 +5,9 @@ using Vaccines_Scheduling.Repository.Interface.IRepositories;
 
 namespace Vaccines_Scheduling.Repository.Repositories
 {
-    public class PatientRepository : BaseRepository<Patient>, IPatientRepository
+    public class PatientSignUpRepository : BaseRepository<Patient>, IPatientSignUpRepository
     {
-        public  PatientRepository(Context context) : base(context) { }
+        public  PatientSignUpRepository(Context context) : base(context) { }
 
         public Task<Patient> GetPatient(string login, bool asNoTracking = false)
         {
@@ -17,6 +17,16 @@ namespace Vaccines_Scheduling.Repository.Repositories
             //    query = query.AsNoTracking();
 
             return query.FirstOrDefaultAsync(e => e.Login.ToLower() == login.ToLower());
+        }
+
+        public Task<Patient> GetPatientById(int id)
+        {
+            var query = EntitySet.AsQueryable();
+
+            //if (asNoTracking)
+            //    query = query.AsNoTracking();
+
+            return query.FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public Task<List<PatientDTO>> ListPatient(string login)

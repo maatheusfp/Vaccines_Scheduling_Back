@@ -30,13 +30,14 @@ namespace Vaccines_Scheduling.Configuration
         private static void InjectBusiness(IServiceCollection services)
         {
             services.AddScoped<IAuthenticationBusiness, AuthenticationBusiness>();
-            services.AddScoped<IPatientBusiness, PatientBusiness>();
+            services.AddScoped<IPatientSignUpBusiness, PatientSignUpBusiness>();
+            services.AddScoped<IAppointmentSignUpBusiness, AppointmentSignUpBusiness>();
         }
 
         private static void InjectRepository(IServiceCollection services)
         {
-            services.AddScoped<IPatientRepository, PatientRepository>();
-
+            services.AddScoped<IPatientSignUpRepository, PatientSignUpRepository>();
+            services.AddScoped<IAppointmentSignUpRepository, AppointmentSignUpRepository>();
         }
     }
 }
