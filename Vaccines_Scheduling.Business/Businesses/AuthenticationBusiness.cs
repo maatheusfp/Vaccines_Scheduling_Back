@@ -14,6 +14,7 @@ using Vaccines_Scheduling.Utility.Configurations;
 using Vaccines_Scheduling.Utility.Extensions;
 using Vaccines_Scheduling.Utility.PatientContext;
 using Vaccines_Scheduling.Utility.Messages;
+using Vaccines_Scheduling.Entity.Model;
 
 namespace Vaccines_Scheduling.Business.Businesses
 {
@@ -30,10 +31,10 @@ namespace Vaccines_Scheduling.Business.Businesses
             _authConfig = authConfig.CurrentValue;
             _patientContext = patientContext;
         }
-        public async Task<TokenPatientDTO> Login(string login, string senha)
+        public async Task<TokenPatientDTO> Login(PatientLoginModel patient)
         {
-            var PatientValido = await Autenticar(login, senha);
-            var Patient = await _patientRepository.GetPatient(login);
+            var PatientValido = await Autenticar(patient.Login, patient.Password);
+            var Patient = await _patientRepository.GetPatient(patient.Login);
             string token;
             string refreshToken;
 
