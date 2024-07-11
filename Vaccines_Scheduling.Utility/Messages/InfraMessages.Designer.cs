@@ -61,6 +61,42 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Appointment does not exist..
+        /// </summary>
+        public static string NotFoundAppointment {
+            get {
+                return ResourceManager.GetString("NotFoundAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Patient does not exist..
+        /// </summary>
+        public static string NotFoundPatient {
+            get {
+                return ResourceManager.GetString("NotFoundPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Patient already exists..
+        /// </summary>
+        public static string RegisteredPatient {
+            get {
+                return ResourceManager.GetString("RegisteredPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Something went wrong. Please try later. .
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Wrong Password.
         /// </summary>
         public static string WrongPassword {

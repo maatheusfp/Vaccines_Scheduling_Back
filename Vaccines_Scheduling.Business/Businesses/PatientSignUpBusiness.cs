@@ -1,15 +1,13 @@
 ﻿using log4net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Entities;
 using Vaccines_Scheduling.Entity.Model;
 using Vaccines_Scheduling.Repository.Interface.IRepositories;
+using Vaccines_Scheduling.Utility.Exceptions;
+using Vaccines_Scheduling.Utility.Messages;
 
 namespace Vaccines_Scheduling.Business.Businesses
 {
@@ -31,8 +29,8 @@ namespace Vaccines_Scheduling.Business.Businesses
             }
             else
             {
-                _log.InfoFormat("Patient does not exist");
-                throw new NotImplementedException();
+                //_log.InfoFormat("Patient does not exist");
+                throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
 
             return await _patientRepository.GetAll();
@@ -42,7 +40,7 @@ namespace Vaccines_Scheduling.Business.Businesses
             var patient = await _patientRepository.GetPatient(login);
             if (patient == null)
             {
-                throw new NotImplementedException();
+                throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
 
             return await _patientRepository.ListPatient(login); 
@@ -54,7 +52,7 @@ namespace Vaccines_Scheduling.Business.Businesses
 
             if (patient != null)
             {
-                throw new NotImplementedException();
+                throw new BusinessException(string.Format(InfraMessages.RegisteredPatient));
             }
 
             patient = BuildPatient(newPatient);
