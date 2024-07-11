@@ -4,6 +4,8 @@ using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Entities;
 using Vaccines_Scheduling.Entity.Model;
 using Vaccines_Scheduling.Repository.Interface.IRepositories;
+using Vaccines_Scheduling.Utility.Exceptions;
+using Vaccines_Scheduling.Utility.Messages;
 
 namespace Vaccines_Scheduling.Business.Businesses
 {
@@ -30,7 +32,7 @@ namespace Vaccines_Scheduling.Business.Businesses
             else
             {
                 _log.InfoFormat("appointment does not exist");
-                throw new NotImplementedException();
+                throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
             }
             var intId = Int32.Parse(patientId);
             return await _appointmentRepository.GetPatientAppointmentsById(intId);
@@ -43,7 +45,7 @@ namespace Vaccines_Scheduling.Business.Businesses
             if (patient == null)
             {
                 _log.InfoFormat("Patient does not exist");
-                throw new NotImplementedException();
+                throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
             var query = await _appointmentRepository.GetPatientAppointmentsById(intId);
             return query;

@@ -23,7 +23,7 @@ namespace Vaccines_Scheduling.Configuration
 
         private static void InjectMiddleware(IServiceCollection services)
         {
-            //services.AddTransient<ApiMiddleware>();
+            services.AddTransient<ApiMiddleware>();
             services.AddTransient<PatientContextMiddleware>();
         }
 

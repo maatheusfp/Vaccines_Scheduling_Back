@@ -74,7 +74,7 @@ namespace Vaccines_Scheduling
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //app.UseMiddleware<ApiMiddleware>();
+            app.UseMiddleware<ApiMiddleware>();
             app.UseMiddleware<PatientContextMiddleware>();
 
             app.UseEndpoints(endpoints =>
