@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Model;
+using Vaccines_Scheduling.Utility.Attributes;
 
 namespace Vaccines_Scheduling.Controllers
 {
@@ -22,12 +23,14 @@ namespace Vaccines_Scheduling.Controllers
         }
 
         [HttpDelete("DeletePatient")]
+        [MandatoryTransactions]
         public async Task<List<PatientDTO>> DeletePatient(string login)
         {
             return await _patientBusiness.DeletePatient(login);
         }
 
         [HttpPost("SignUp")]
+        [MandatoryTransactions]
         public async Task<List<PatientDTO>> InsertPatient(PatientSignUpModel newPatient)
         {
             return await _patientBusiness.InsertPatient(newPatient);

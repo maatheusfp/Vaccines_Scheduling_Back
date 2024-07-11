@@ -4,6 +4,7 @@ using System.Security.Claims;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Model;
+using Vaccines_Scheduling.Utility.Attributes;
 
 namespace Vaccines_Scheduling.Webapi.Controllers
 {
@@ -25,6 +26,7 @@ namespace Vaccines_Scheduling.Webapi.Controllers
             return await _appointmentSignUpBusiness.GetPatientAppointments(userId);
         }
         [Authorize]
+        [MandatoryTransactions]
         [HttpDelete("DeleteAppointment")]
         public async Task<List<AppointmentDTO>> DeleteAppointment(int id)
         {
@@ -32,6 +34,7 @@ namespace Vaccines_Scheduling.Webapi.Controllers
             return await _appointmentSignUpBusiness.DeleteAppointment(id, userId);
         }
         [Authorize]
+        [MandatoryTransactions]
         [HttpPost("MakeAppointment")]
         public async Task<List<AppointmentDTO>> InsertAppointment(AppointmentSignUpModel newAppointment)
         {
