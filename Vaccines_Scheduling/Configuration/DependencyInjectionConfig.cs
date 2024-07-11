@@ -1,5 +1,7 @@
 ﻿using Vaccines_Scheduling.Business.Businesses;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
+using Vaccines_Scheduling.Repository;
+using Vaccines_Scheduling.Repository.Interface;
 using Vaccines_Scheduling.Repository.Interface.IRepositories;
 using Vaccines_Scheduling.Repository.Repositories;
 using Vaccines_Scheduling.Utility.Configurations;
@@ -16,7 +18,7 @@ namespace Vaccines_Scheduling.Configuration
             InjectBusiness(services);
             InjectMiddleware(services);
 
-            //services.AddScoped<IGerenciadorTransacao, GerenciadorTransacao>();
+            services.AddScoped<IMandatoryTransaction, MandatoryTransaction>();
             services.AddScoped<IPatientContext, PatientContext>();
             services.AddOptions<AuthConfig>().Bind(configuration.GetSection("Authorization"));
         }
