@@ -11,16 +11,17 @@ namespace Vaccines_Scheduling.Business.Businesses
     {
         private static readonly ILog _log = LogManager.GetLogger(typeof(AppointmentSignUpBusiness));
         private readonly IAppointmentSignUpRepository _appointmentRepository;
-        private readonly IPatientSignUpRepository patientRepository; 
+        private readonly IPatientSignUpRepository _patientRepository; 
 
-        public AppointmentSignUpBusiness(IAppointmentSignUpRepository appointmentRepository)
+        public AppointmentSignUpBusiness(IAppointmentSignUpRepository appointmentRepository, IPatientSignUpRepository patientRepository)
         {
             _appointmentRepository = appointmentRepository;
+            _patientRepository = patientRepository;
 
         }
-        public async  Task<List<AppointmentDTO>> DeleteAppointment(int id, string patientId)
+        public async  Task<List<AppointmentDTO>> DeleteAppointment(int appointmentId, string patientId)
         {
-            var appointment = await _appointmentRepository.GetAppointmentById(id);
+            var appointment = await _appointmentRepository.GetAppointmentById(appointmentId);
             if (appointment != null)
             {
                 await _appointmentRepository.Delete(appointment);
@@ -38,30 +39,31 @@ namespace Vaccines_Scheduling.Business.Businesses
         public async Task<List<AppointmentDTO>> GetPatientAppointments(string id)
         {
             var intId = Int32.Parse(id);
-            var appointment = await patientRepository.GetPatientById(intId);
-            if (appointment == null)
+            var patient = await _patientRepository.GetPatientById(intId);
+            if (patient == null)
             {
                 _log.InfoFormat("Patient does not exist");
                 throw new NotImplementedException();
             }
-            return await _appointmentRepository.GetPatientAppointmentsById(intId);
+            var query = await _appointmentRepository.GetPatientAppointmentsById(intId);
+            return query;
         }
 
-        public async Task<List<AppointmentDTO>> InsertAppointment(AppointmentSignUpModel newAppointment,  string id)
+        public async Task<List<AppointmentDTO>> InsertAppointment(AppointmentSignUpModel newAppointment,  string patientId)
         {
-            var intId = Int32.Parse(id);
-            var Appointment = await _appointmentRepository.GetAppointmentById(intId);
+            var patientIntId = Int32.Parse(patientId);
+            //var Appointment = await _appointmentRepository.GetAppointmentById(patientIntId);
 
-            if (Appointment != null)
-            {
-                throw new NotImplementedException();
-            }
+            //if (Appointment != null)
+            //{
+            //    throw new NotImplementedException();
+            //}
 
-            Appointment = BuildAppointment(newAppointment, intId);
+            var appointment = BuildAppointment(newAppointment, patientIntId);
 
-            await _appointmentRepository.Insert(Appointment);
+            await _appointmentRepository.Insert(appointment);
 
-            return await _appointmentRepository.GetPatientAppointmentsById(intId);
+            return await _appointmentRepository.GetPatientAppointmentsById(patientIntId);
         }
 
         public static Appointment BuildAppointment(AppointmentSignUpModel newAppointment, int id)
