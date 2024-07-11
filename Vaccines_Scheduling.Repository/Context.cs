@@ -5,9 +5,10 @@ namespace Vaccines_Scheduling.Repository
 {
     public class Context : DbContext
     {
-        public DbSet<Patient> Patient { get; set; }
         public Context(DbContextOptions<Context> options) : base(options) { }
-
+        public DbSet<Patient> Patient { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);

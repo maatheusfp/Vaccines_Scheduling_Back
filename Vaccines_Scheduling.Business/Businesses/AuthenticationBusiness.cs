@@ -20,14 +20,14 @@ namespace Vaccines_Scheduling.Business.Businesses
 {
     public class AuthenticationBusiness : IAuthenticationBusiness
     {
-        private readonly IPatientRepository _patientRepository;
+        private readonly IPatientSignUpRepository _patientRepository;
         private readonly AuthConfig _authConfig;
         private readonly IPatientContext _patientContext;
-        public AuthenticationBusiness(IPatientRepository PatientRepositorio,
+        public AuthenticationBusiness(IPatientSignUpRepository PatientRepository,
                                    IOptionsMonitor<AuthConfig> authConfig,
                                    IPatientContext patientContext)
         {
-            _patientRepository = PatientRepositorio;
+            _patientRepository = PatientRepository;
             _authConfig = authConfig.CurrentValue;
             _patientContext = patientContext;
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vaccines_Scheduling.Validator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d994d010100960e8a8118e82a7b9cde205729e99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77c600af569a8e4e3decd78715656fab3bcc1b0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vaccines_Scheduling.Validator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vaccines_Scheduling.Validator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

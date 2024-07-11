@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vaccines_Scheduling.Entity.Entities
+namespace Vaccines_Scheduling.Entity.DTO
 {
-    public class Appointment : IdEntity<int>
+    public class AppointmentDTO
     {
-        public int IdPatient { get; set; }
         public DateOnly Date {  get; set; }
         public TimeOnly Time { get; set; }
         public string Status { get; set; }
-        public DateTime CreationTime { get; set; }
-        public Appointment() { }
     }
 }
