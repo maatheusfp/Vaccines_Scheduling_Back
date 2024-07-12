@@ -7,6 +7,7 @@ namespace Vaccines_Scheduling.Repository.Interface.IRepositories
     {
         Task<Appointment> GetAppointmentById(int id);
         Task<List<AppointmentDTO>> GetPatientAppointmentsById(int id);
+        Task<List<AppointmentDTO>> GetAppointmentsByDate(DateOnly date);
 
     }
 }

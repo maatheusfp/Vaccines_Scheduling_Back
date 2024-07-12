@@ -24,6 +24,20 @@ namespace Vaccines_Scheduling.Repository.Repositories
             return query.FirstOrDefaultAsync(e => e.Id == id);
         }
 
+        public Task<List<AppointmentDTO>> GetAppointmentsByDate(DateOnly date)
+        {
+            var query = EntitySet.Where(e => e.Date == date)
+                                 .Select(e => new AppointmentDTO
+                                 {
+                                     Date = e.Date,
+                                     Time = e.Time,
+                                     Status = e.Status,
+                                 })
+                                 .OrderBy(e => e.Date);
+
+            return query.ToListAsync();
+        }
+
         public Task<List<AppointmentDTO>> GetPatientAppointmentsById(int id)
         {
             var query = EntitySet.Where(e => e.IdPatient == id)
@@ -33,8 +47,7 @@ namespace Vaccines_Scheduling.Repository.Repositories
                                      Time = e.Time,
                                      Status = e.Status,
                                  })
-                                 .OrderBy(e => e.Date)
-                                 .Distinct();
+                                 .OrderBy(e => e.Date);
 
             return query.ToListAsync();
         }

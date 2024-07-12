@@ -70,6 +70,9 @@ namespace Vaccines_Scheduling.Webapi.Middleware
                 case BusinessException:
                     messages.Add(ex.Message);
                     break;
+                case UnauthorizedAccessException:
+                    messages.Add(InfraMessages.WrongPassword);
+                    break;
                 default:
                     messages.Add(InfraMessages.UnexpectedError);
                     break;
