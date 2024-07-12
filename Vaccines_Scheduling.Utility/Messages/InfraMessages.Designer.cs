@@ -61,6 +61,96 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There are already 20 appoinments for this day&apos;..
+        /// </summary>
+        public static string FullDay {
+            get {
+                return ResourceManager.GetString("FullDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There are already 2 appointments in &apos;{0}&apos;..
+        /// </summary>
+        public static string FullTime {
+            get {
+                return ResourceManager.GetString("FullTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Date.
+        /// </summary>
+        public static string InvalidDate {
+            get {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Day.
+        /// </summary>
+        public static string InvalidDay {
+            get {
+                return ResourceManager.GetString("InvalidDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Hour.
+        /// </summary>
+        public static string InvalidHour {
+            get {
+                return ResourceManager.GetString("InvalidHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Month.
+        /// </summary>
+        public static string InvalidMonth {
+            get {
+                return ResourceManager.GetString("InvalidMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Max Size of &apos;{0} is &apos;{1}&apos;..
+        /// </summary>
+        public static string MaxSize {
+            get {
+                return ResourceManager.GetString("MaxSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Size of &apos;{0}&apos; must be at least &apos;{1}&apos;..
+        /// </summary>
+        public static string MinSize {
+            get {
+                return ResourceManager.GetString("MinSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Please fill out this field..
+        /// </summary>
+        public static string NeedToFill {
+            get {
+                return ResourceManager.GetString("NeedToFill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There is no appointments for this day. .
+        /// </summary>
+        public static string NoAppointments {
+            get {
+                return ResourceManager.GetString("NoAppointments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Appointment does not exist..
         /// </summary>
         public static string NotFoundAppointment {
@@ -97,7 +187,7 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Wrong Password.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Credentials.
         /// </summary>
         public static string WrongPassword {
             get {

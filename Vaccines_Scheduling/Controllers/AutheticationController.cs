@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Model;
+using Vaccines_Scheduling.Utility.Attributes;
 
 namespace Vaccines_Scheduling.Webapi.Controllers
 {
@@ -17,6 +18,7 @@ namespace Vaccines_Scheduling.Webapi.Controllers
             _authBusiness = authBusiness;
         }
         [HttpPost("Login")]
+        [MandatoryTransactions]
         public async Task<TokenPatientDTO> Login(PatientLoginModel patient)
         {
             return await _authBusiness.Login(patient);

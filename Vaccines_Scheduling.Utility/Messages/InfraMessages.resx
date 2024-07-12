@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FullDay" xml:space="preserve">
+    <value>There are already 20 appoinments for this day'.</value>
+  </data>
+  <data name="FullTime" xml:space="preserve">
+    <value>There are already 2 appointments in '{0}'.</value>
+  </data>
+  <data name="InvalidDate" xml:space="preserve">
+    <value>Invalid Date</value>
+  </data>
+  <data name="InvalidDay" xml:space="preserve">
+    <value>Invalid Day</value>
+  </data>
+  <data name="InvalidHour" xml:space="preserve">
+    <value>Invalid Hour</value>
+  </data>
+  <data name="InvalidMonth" xml:space="preserve">
+    <value>Invalid Month</value>
+  </data>
+  <data name="MaxSize" xml:space="preserve">
+    <value>Max Size of '{0} is '{1}'.</value>
+  </data>
+  <data name="MinSize" xml:space="preserve">
+    <value>Size of '{0}' must be at least '{1}'.</value>
+  </data>
+  <data name="NeedToFill" xml:space="preserve">
+    <value>Please fill out this field.</value>
+  </data>
+  <data name="NoAppointments" xml:space="preserve">
+    <value>There is no appointments for this day. </value>
+  </data>
   <data name="NotFoundAppointment" xml:space="preserve">
     <value>Appointment does not exist.</value>
   </data>
@@ -130,6 +160,6 @@
     <value>Something went wrong. Please try later. </value>
   </data>
   <data name="WrongPassword" xml:space="preserve">
-    <value>Wrong Password</value>
+    <value>Invalid Credentials</value>
   </data>
 </root>

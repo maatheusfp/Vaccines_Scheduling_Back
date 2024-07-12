@@ -22,16 +22,13 @@ namespace Vaccines_Scheduling.Business.Businesses
         public async Task<List<PatientDTO>> DeletePatient(string login)
         {
             var patient = await _patientRepository.GetPatient(login);
-            if (patient != null)
+            if (patient == null)
             {
-                await _patientRepository.Delete(patient);
-                _log.InfoFormat("O usuario '{0}' foi removido.", patient.Name); // modificar saida dps
-            }
-            else
-            {
-                //_log.InfoFormat("Patient does not exist");
                 throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
+
+            await _patientRepository.Delete(patient);
+            _log.InfoFormat("O usuario '{0}' foi removido.", patient.Name);
 
             return await _patientRepository.GetAll();
         }

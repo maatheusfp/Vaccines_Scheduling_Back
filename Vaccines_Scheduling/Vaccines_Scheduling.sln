@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.Webapi", "Vaccines_Scheduling.Webapi.csproj", "{680CDDBE-50CC-4687-B97E-AB510ECCCD69}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C} = {CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.Business", "..\Vaccines_Scheduling.Business\Vaccines_Scheduling.Business.csproj", "{E8EC0BF3-7CBA-4986-8177-148D45B437A4}"
 EndProject
@@ -17,9 +20,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.Utility
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.UnitTest", "..\Vaccines_Scheduling.UnitTest\Vaccines_Scheduling.UnitTest.csproj", "{CB485681-B606-4C1D-B34E-4119AE1E3FA9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.Validator", "..\Vaccines_Scheduling.Validator\Vaccines_Scheduling.Validator.csproj", "{6F7ACA3E-28AA-4D37-9D0A-11CD6C5C61A8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaccines_Scheduling.Entity", "..\Vaccines_Scheduling.Entity\Vaccines_Scheduling.Entity.csproj", "{908F8D92-1D76-4B30-A469-508DD90FE48E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaccines_Scheduling.Validators", "..\Vaccines_Scheduling.Validators\Vaccines_Scheduling.Validators.csproj", "{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4813C41-30DA-4D91-9760-E2A7C359D105} = {B4813C41-30DA-4D91-9760-E2A7C359D105}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,14 +61,14 @@ Global
 		{CB485681-B606-4C1D-B34E-4119AE1E3FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB485681-B606-4C1D-B34E-4119AE1E3FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB485681-B606-4C1D-B34E-4119AE1E3FA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F7ACA3E-28AA-4D37-9D0A-11CD6C5C61A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F7ACA3E-28AA-4D37-9D0A-11CD6C5C61A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F7ACA3E-28AA-4D37-9D0A-11CD6C5C61A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F7ACA3E-28AA-4D37-9D0A-11CD6C5C61A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{908F8D92-1D76-4B30-A469-508DD90FE48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{908F8D92-1D76-4B30-A469-508DD90FE48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{908F8D92-1D76-4B30-A469-508DD90FE48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{908F8D92-1D76-4B30-A469-508DD90FE48E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8A3BE7-CEFF-4EBB-A9EB-9C4ABFA8DE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,19 +19,16 @@ namespace Vaccines_Scheduling
             services.AddControllers()
                     .AddJsonOptions(options =>
                     {
-                        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter());
-                        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH:mm:ss"));
+                        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter("yyyy-MM-dd"));
+                        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH"));
+                        options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+
                     });
 
             services.AddDependencyInjectionConfiguration(Configuration);
-
             services.AddDatabaseConfiguration(Configuration);
-            
-
-            //services.AddFluentConfiguration();
-
+            services.AddFluentConfiguration();
             services.AddAutorizationConfig(Configuration);
-
             services.AddSwaggerGen(c =>
             {
                 c.MapType(typeof(TimeSpan), () => new() { Type = "string", Example = new OpenApiString("00:00:00") });

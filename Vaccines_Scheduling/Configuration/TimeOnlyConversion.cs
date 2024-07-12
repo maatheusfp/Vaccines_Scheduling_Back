@@ -7,7 +7,7 @@ namespace Vaccines_Scheduling.Webapi.Configuration
     {
         private readonly string _format;
 
-        public TimeOnlyJsonConverter(string format = "HH:mm:ss")
+        public TimeOnlyJsonConverter(string format = "HH")
         {
             _format = format;
         }

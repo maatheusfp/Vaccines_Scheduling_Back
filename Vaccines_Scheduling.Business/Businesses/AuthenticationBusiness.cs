@@ -44,7 +44,7 @@ namespace Vaccines_Scheduling.Business.Businesses
                 refreshToken = GerarRefreshToken(Patient);
             }
             else
-                throw new UnauthorizedAccessException();
+                throw new UnauthorizedAccessException(InfraMessages.WrongPassword);
 
             return new TokenPatientDTO(token, refreshToken);
         }
