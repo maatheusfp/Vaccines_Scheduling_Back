@@ -1,5 +1,5 @@
 ﻿using FluentValidation.AspNetCore;
-using Vaccines_Scheduling.Entity.Model;
+using Vaccines_Scheduling.Validators.Fluent;
 
 namespace Vaccines_Scheduling.Webapi.Configuration
 {
@@ -7,9 +7,10 @@ namespace Vaccines_Scheduling.Webapi.Configuration
     {
         public static void AddFluentConfiguration(this IServiceCollection services)
         {
-            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientLoginModel>());
-            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientSignUpModel>());
-            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<AppointmentSignUpModel>());
+            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientLoginValidator>());
+            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientSignUpValidator>());
+            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<AppointmentSignUpValidator>());
+
         }
     }
 }

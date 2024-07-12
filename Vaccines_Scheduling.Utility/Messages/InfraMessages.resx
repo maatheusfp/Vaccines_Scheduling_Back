@@ -117,17 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DateBefore" xml:space="preserve">
-    <value>The appointment date must be today or a future date.</value>
-  </data>
   <data name="FullDay" xml:space="preserve">
     <value>There are already 20 appoinments for this day'.</value>
   </data>
   <data name="FullTime" xml:space="preserve">
     <value>There are already 2 appointments in '{0}'.</value>
   </data>
+  <data name="InvalidDate" xml:space="preserve">
+    <value>Invalid Date</value>
+  </data>
+  <data name="InvalidDay" xml:space="preserve">
+    <value>Invalid Day</value>
+  </data>
   <data name="InvalidHour" xml:space="preserve">
     <value>Invalid Hour</value>
+  </data>
+  <data name="InvalidMonth" xml:space="preserve">
+    <value>Invalid Month</value>
   </data>
   <data name="MaxSize" xml:space="preserve">
     <value>Max Size of '{0} is '{1}'.</value>

@@ -61,15 +61,6 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The appointment date must be today or a future date..
-        /// </summary>
-        public static string DateBefore {
-            get {
-                return ResourceManager.GetString("DateBefore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a There are already 20 appoinments for this day&apos;..
         /// </summary>
         public static string FullDay {
@@ -88,11 +79,38 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Date.
+        /// </summary>
+        public static string InvalidDate {
+            get {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Day.
+        /// </summary>
+        public static string InvalidDay {
+            get {
+                return ResourceManager.GetString("InvalidDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Hour.
         /// </summary>
         public static string InvalidHour {
             get {
                 return ResourceManager.GetString("InvalidHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Month.
+        /// </summary>
+        public static string InvalidMonth {
+            get {
+                return ResourceManager.GetString("InvalidMonth", resourceCulture);
             }
         }
         
