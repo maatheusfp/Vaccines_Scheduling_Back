@@ -16,14 +16,14 @@ namespace Vaccines_Scheduling
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                    .AddJsonOptions(options =>
-                    {
-                        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter("yyyy-MM-dd"));
-                        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH"));
-                        options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+            services.AddControllers();
+                    //.AddJsonOptions(options =>
+                    //{
+                    //    options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter("yyyy-MM-dd"));
+                    //    options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH"));
+                    //    options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
 
-                    });
+                    //});
 
             services.AddDependencyInjectionConfiguration(Configuration);
             services.AddDatabaseConfiguration(Configuration);

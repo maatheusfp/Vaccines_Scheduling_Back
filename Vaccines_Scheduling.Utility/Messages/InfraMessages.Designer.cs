@@ -115,6 +115,15 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidYear.
+        /// </summary>
+        public static string InvalidYear {
+            get {
+                return ResourceManager.GetString("InvalidYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Max Size of &apos;{0} is &apos;{1}&apos;..
         /// </summary>
         public static string MaxSize {

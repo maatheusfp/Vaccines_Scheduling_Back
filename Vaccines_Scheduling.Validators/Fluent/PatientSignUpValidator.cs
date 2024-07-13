@@ -22,13 +22,22 @@ namespace Vaccines_Scheduling.Validators.Fluent
             RuleFor(t => t.Birthday)
                 .NotNull().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .NotEmpty().WithMessage(string.Format(InfraMessages.NeedToFill))
-                .LessThanOrEqualTo(DateTime.Today).WithMessage(InfraMessages.InvalidDate);
+                .Must(BeAValidDate).WithMessage(InfraMessages.InvalidDate)
+                .Must(BeValidYear).WithMessage(InfraMessages.InvalidYear);
 
 
             RuleFor(t => t.Password)
                 .NotNull().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .NotEmpty().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .MinimumLength(5).WithMessage(string.Format(InfraMessages.MinSize, "Password", 5));
+        }
+        private bool BeAValidDate(DateOnly date)
+        {
+            return date <= DateOnly.FromDateTime(DateTime.Now);
+        }
+        private bool BeValidYear(DateOnly date)
+        {
+            return date.Year <= DateTime.Now.Year;
         }
     }
 }

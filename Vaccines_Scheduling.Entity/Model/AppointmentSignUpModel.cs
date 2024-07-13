@@ -9,7 +9,7 @@ namespace Vaccines_Scheduling.Entity.Model
     public class AppointmentSignUpModel
     {
         public string PatientName { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateOnly Birthday { get; set; }
         public DateOnly Date { get; set; }
         public TimeOnly Time { get; set; }
     }

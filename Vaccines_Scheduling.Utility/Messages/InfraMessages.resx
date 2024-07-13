@@ -135,6 +135,9 @@
   <data name="InvalidMonth" xml:space="preserve">
     <value>Invalid Month</value>
   </data>
+  <data name="InvalidYear" xml:space="preserve">
+    <value>InvalidYear</value>
+  </data>
   <data name="MaxSize" xml:space="preserve">
     <value>Max Size of '{0} is '{1}'.</value>
   </data>

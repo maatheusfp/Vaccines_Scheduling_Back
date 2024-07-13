@@ -1,4 +1,5 @@
 ﻿using log4net;
+using System.ComponentModel.DataAnnotations;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Entities;
@@ -86,7 +87,6 @@ namespace Vaccines_Scheduling.Business.Businesses
                 Status = "Não Realizado",
                 CreationTime = DateTime.Now
             };
-
             return Appointment;
         }
     }   
