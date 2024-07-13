@@ -33,5 +33,18 @@ namespace Vaccines_Scheduling.Repository.Repositories
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task<TEntity> GetById(int id)
+        {
+            return await EntitySet.FindAsync(id);
+        }
+        public async Task<TEntity> Update(TEntity entidade)
+        {
+            var entityEntry = EntitySet.Update(entidade);
+
+            await _context.SaveChangesAsync();
+
+            return entityEntry.Entity;
+        }
     }
 }

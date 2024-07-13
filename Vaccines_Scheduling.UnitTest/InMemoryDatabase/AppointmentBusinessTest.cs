@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vaccines_Scheduling.Business.Businesses;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.Model;
@@ -30,15 +25,20 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
         [Test]
         public void MakeAppointment_Success()
         {
+            var id = "1";
             // Arrange
-            //var appointment = new appointmentsignupmodel
-            //{
-            //    date = dateonly.fromdatetime(datetime.now), // convert datetime to dateonly
-            //    time = new timeonly(10, 0),
-            //    birthday = datetime.now.date, // extract the date part from datetime
-            //    patientname = "test patient"
-            //};
-            //assert.pass();
+            var appointment = new AppointmentSignUpModel
+            {
+                PatientName = "Test",
+                Birthday = DateOnly.Parse("2024-05-21"),
+                Date = DateOnly.Parse("2024-07-13"),
+                Time = TimeOnly.Parse("18")
+            };
+            // Act
+            async Task action() => await _appointmentBusiness.InsertAppointment(appointment, id);
+
+            // Assert
+            Assert.DoesNotThrowAsync(action);
         }
     }
 }

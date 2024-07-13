@@ -14,16 +14,6 @@ namespace Vaccines_Scheduling.Repository.Repositories
     {
         public AppointmentSignUpRepository(Context context) : base(context) { }
 
-        public Task<Appointment> GetAppointmentById(int id)
-        {
-            var query = EntitySet.AsQueryable();
-
-            //if (asNoTracking)
-            //    query = query.AsNoTracking();
-
-            return query.FirstOrDefaultAsync(e => e.Id == id);
-        }
-
         public Task<List<AppointmentDTO>> GetAppointmentsByDate(DateOnly date)
         {
             var query = EntitySet.Where(e => e.Date == date)

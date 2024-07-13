@@ -13,5 +13,6 @@ namespace Vaccines_Scheduling.Business.Interface.IBusiness
         Task<List<AppointmentDTO>> GetPatientAppointments(string id);
         Task<List<AppointmentDTO>> DeleteAppointment(int id, string patientId);
         Task<List<AppointmentDTO>> InsertAppointment(AppointmentSignUpModel newAppointment, string id);
+        Task<List<AppointmentDTO>> ChangeAppointmentStatus(string patientId, int appointmentId, string status);
     }
 }

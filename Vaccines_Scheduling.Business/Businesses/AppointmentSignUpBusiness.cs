@@ -13,18 +13,15 @@ namespace Vaccines_Scheduling.Business.Businesses
     public class AppointmentSignUpBusiness : IAppointmentSignUpBusiness
     {
         private static readonly ILog _log = LogManager.GetLogger(typeof(AppointmentSignUpBusiness));
-        private readonly IAppointmentSignUpRepository _appointmentRepository;
-        private readonly IPatientSignUpRepository _patientRepository; 
+        private readonly IAppointmentSignUpRepository _appointmentRepository; 
 
         public AppointmentSignUpBusiness(IAppointmentSignUpRepository appointmentRepository, IPatientSignUpRepository patientRepository)
         {
             _appointmentRepository = appointmentRepository;
-            _patientRepository = patientRepository;
-
         }
         public async  Task<List<AppointmentDTO>> DeleteAppointment(int appointmentId, string patientId)
         {
-            var appointment = await _appointmentRepository.GetAppointmentById(appointmentId);
+            var appointment = await _appointmentRepository.GetById(appointmentId);
             var intId = Int32.Parse(patientId);
 
             if (appointment == null || appointment.IdPatient != intId)
@@ -38,10 +35,28 @@ namespace Vaccines_Scheduling.Business.Businesses
             return await _appointmentRepository.GetPatientAppointmentsById(intId);
         }
 
+        public async Task<List<AppointmentDTO>> ChangeAppointmentStatus(string patientId, int appointmentId, string status)
+        {
+            var appointment = await _appointmentRepository.GetById(appointmentId);
+            var intId = Int32.Parse(patientId);
+
+            if (appointment == null || appointment.IdPatient != intId)
+            {
+                _log.InfoFormat("appointment does not exist");
+                throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
+            }
+            else
+            {
+                appointment.Status = status;
+                await _appointmentRepository.Update(appointment);
+            }
+            return await _appointmentRepository.GetPatientAppointmentsById(intId);
+        }
+
         public async Task<List<AppointmentDTO>> GetPatientAppointments(string id)
         {
             var intId = Int32.Parse(id);
-            var patient = await _patientRepository.GetPatientById(intId);
+            var patient = await _appointmentRepository.GetById(intId);
             if (patient == null)
             {
                 _log.InfoFormat("Patient does not exist");
@@ -66,10 +81,7 @@ namespace Vaccines_Scheduling.Business.Businesses
         }
 
         public static void AppointmentsValidator(List<AppointmentDTO> appointments, TimeOnly time)
-        {
-
-            if (appointments == null) throw new BusinessException(string.Format(InfraMessages.NoAppointments));
-            
+        {      
             if (appointments.Count > 20) throw new BusinessException(string.Format(InfraMessages.FullDay));
             
             var appointmentsAtSameTime = appointments.Where(a => a.Time == time).ToList();

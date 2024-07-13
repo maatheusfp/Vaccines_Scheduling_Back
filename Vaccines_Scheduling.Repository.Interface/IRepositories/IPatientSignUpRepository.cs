@@ -11,7 +11,6 @@ namespace Vaccines_Scheduling.Repository.Interface.IRepositories
     public interface IPatientSignUpRepository : IBaseRepository<Patient>
     {
         Task<Patient> GetPatient(string login, bool asNoTracking = false);
-        Task<Patient> GetPatientById(int id);
         Task<List<PatientDTO>> ListPatient(string login);
         Task<List<PatientDTO>> GetAll();
     }
