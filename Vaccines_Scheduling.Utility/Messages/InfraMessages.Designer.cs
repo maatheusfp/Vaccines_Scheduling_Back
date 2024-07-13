@@ -79,11 +79,29 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Birthday can&apos;t be in the future. .
+        /// </summary>
+        public static string InvalidBirthday {
+            get {
+                return ResourceManager.GetString("InvalidBirthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Date.
         /// </summary>
         public static string InvalidDate {
             get {
                 return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Can&apos;t make an appointment in the past. .
+        /// </summary>
+        public static string InvalidDateAppointment {
+            get {
+                return ResourceManager.GetString("InvalidDateAppointment", resourceCulture);
             }
         }
         
@@ -111,6 +129,24 @@ namespace Vaccines_Scheduling.Utility.Messages {
         public static string InvalidMonth {
             get {
                 return ResourceManager.GetString("InvalidMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid Time.
+        /// </summary>
+        public static string InvalidTime {
+            get {
+                return ResourceManager.GetString("InvalidTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a InvalidYear.
+        /// </summary>
+        public static string InvalidYear {
+            get {
+                return ResourceManager.GetString("InvalidYear", resourceCulture);
             }
         }
         

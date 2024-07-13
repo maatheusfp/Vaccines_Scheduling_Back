@@ -21,7 +21,7 @@ namespace Vaccines_Scheduling
                     {
                         options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter("yyyy-MM-dd"));
                         options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter("HH"));
-                        options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
+                        //options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter("yyyy-MM-dd"));
 
                     });
 

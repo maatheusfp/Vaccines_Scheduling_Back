@@ -61,11 +61,14 @@ namespace Vaccines_Scheduling.Business.Businesses
 
         public static Patient BuildPatient(PatientSignUpModel newPatient)
         {
+            var dateOnly = newPatient.Birthday;
+            var dateTime = dateOnly.ToDateTime(TimeOnly.MinValue);
+
             var patient = new Patient
             {
                 Name = newPatient.Name,
                 Login = newPatient.Login,
-                Birthday = newPatient.Birthday,
+                Birthday = dateTime,
                 CreationTime = DateTime.Now
             };
 

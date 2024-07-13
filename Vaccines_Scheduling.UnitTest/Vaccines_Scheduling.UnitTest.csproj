@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -20,6 +20,12 @@
 			<PrivateAssets>All</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Vaccines_Scheduling.Business.Interface\Vaccines_Scheduling.Business.Interface.csproj" />
+	  <ProjectReference Include="..\Vaccines_Scheduling.Business\Vaccines_Scheduling.Business.csproj" />
+	  <ProjectReference Include="..\Vaccines_Scheduling.Repository\Vaccines_Scheduling.Repository.csproj" />
 	</ItemGroup>
 	
 </Project>
