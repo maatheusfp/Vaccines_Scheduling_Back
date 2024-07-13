@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vaccines_Scheduling.Entity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14f8ad442971f389e42e5178f63676a23314faaf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a197bb5bc1784bc285828a99b7501c42de8ebc45")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vaccines_Scheduling.Entity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vaccines_Scheduling.Entity")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

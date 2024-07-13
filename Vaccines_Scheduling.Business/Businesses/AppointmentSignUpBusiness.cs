@@ -25,15 +25,16 @@ namespace Vaccines_Scheduling.Business.Businesses
         public async  Task<List<AppointmentDTO>> DeleteAppointment(int appointmentId, string patientId)
         {
             var appointment = await _appointmentRepository.GetAppointmentById(appointmentId);
-            if (appointment == null)
+            var intId = Int32.Parse(patientId);
+
+            if (appointment == null || appointment.IdPatient != intId)
             {
                 _log.InfoFormat("appointment does not exist");
                 throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));              
             }
             await _appointmentRepository.Delete(appointment);
             _log.InfoFormat("O agendamento do dia '{0}' e horario '{1}' foi removido.", appointment.Date, appointment.Time);
-
-            var intId = Int32.Parse(patientId);
+            
             return await _appointmentRepository.GetPatientAppointmentsById(intId);
         }
 

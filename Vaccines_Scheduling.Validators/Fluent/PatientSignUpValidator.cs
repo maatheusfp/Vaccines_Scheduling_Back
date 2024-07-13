@@ -22,8 +22,7 @@ namespace Vaccines_Scheduling.Validators.Fluent
             RuleFor(t => t.Birthday)
                 .NotNull().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .NotEmpty().WithMessage(string.Format(InfraMessages.NeedToFill))
-                .Must(BeAValidDate).WithMessage(InfraMessages.InvalidDate)
-                .Must(BeValidYear).WithMessage(InfraMessages.InvalidYear);
+                .Must(BeAValidDate).WithMessage(InfraMessages.InvalidBirthday);
 
 
             RuleFor(t => t.Password)
@@ -34,10 +33,6 @@ namespace Vaccines_Scheduling.Validators.Fluent
         private bool BeAValidDate(DateOnly date)
         {
             return date <= DateOnly.FromDateTime(DateTime.Now);
-        }
-        private bool BeValidYear(DateOnly date)
-        {
-            return date.Year <= DateTime.Now.Year;
         }
     }
 }

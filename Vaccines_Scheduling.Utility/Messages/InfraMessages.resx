@@ -123,8 +123,14 @@
   <data name="FullTime" xml:space="preserve">
     <value>There are already 2 appointments in '{0}'.</value>
   </data>
+  <data name="InvalidBirthday" xml:space="preserve">
+    <value>Birthday can't be in the future. </value>
+  </data>
   <data name="InvalidDate" xml:space="preserve">
     <value>Invalid Date</value>
+  </data>
+  <data name="InvalidDateAppointment" xml:space="preserve">
+    <value>Can't make an appointment in the past. </value>
   </data>
   <data name="InvalidDay" xml:space="preserve">
     <value>Invalid Day</value>
@@ -134,6 +140,9 @@
   </data>
   <data name="InvalidMonth" xml:space="preserve">
     <value>Invalid Month</value>
+  </data>
+  <data name="InvalidTime" xml:space="preserve">
+    <value>Invalid Time</value>
   </data>
   <data name="InvalidYear" xml:space="preserve">
     <value>InvalidYear</value>

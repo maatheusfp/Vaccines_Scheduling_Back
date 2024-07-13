@@ -31,14 +31,14 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
         public void MakeAppointment_Success()
         {
             // Arrange
-            var appointment = new AppointmentSignUpModel
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now), // Convert DateTime to DateOnly
-                Time = new TimeOnly(10, 0),
-                Birthday = DateTime.Now.Date, // Extract the date part from DateTime
-                PatientName = "Test Patient"
-            };
-            Assert.Pass();
+            //var appointment = new appointmentsignupmodel
+            //{
+            //    date = dateonly.fromdatetime(datetime.now), // convert datetime to dateonly
+            //    time = new timeonly(10, 0),
+            //    birthday = datetime.now.date, // extract the date part from datetime
+            //    patientname = "test patient"
+            //};
+            //assert.pass();
         }
     }
 }
