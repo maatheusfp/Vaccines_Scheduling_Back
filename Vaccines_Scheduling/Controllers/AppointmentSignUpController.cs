@@ -28,10 +28,18 @@ namespace Vaccines_Scheduling.Webapi.Controllers
         [Authorize]
         [MandatoryTransactions]
         [HttpDelete("DeleteAppointment")]
-        public async Task<List<AppointmentDTO>> DeleteAppointment(int id)
+        public async Task<List<AppointmentDTO>> DeleteAppointment(AppointmentChangeModel appointment)
         {
             var userId = User.FindFirst(ClaimTypes.Sid)?.Value;
-            return await _appointmentSignUpBusiness.DeleteAppointment(id, userId);
+            return await _appointmentSignUpBusiness.DeleteAppointment(appointment, userId);
+        }
+        [Authorize]
+        [MandatoryTransactions]
+        [HttpPut("ChangeAppointmentStatus")]
+        public async Task<List<AppointmentDTO>> ChangeAppointmentStatus(AppointmentChangeModel appointment)
+        {
+            var userId = User.FindFirst(ClaimTypes.Sid)?.Value;
+            return await _appointmentSignUpBusiness.ChangeAppointmentStatus(appointment, userId);
         }
         [Authorize]
         [MandatoryTransactions]

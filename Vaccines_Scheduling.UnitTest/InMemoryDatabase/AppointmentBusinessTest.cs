@@ -11,12 +11,19 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
     {
         private IAppointmentSignUpBusiness _appointmentBusiness;
         private IAppointmentSignUpRepository _appointmentRepository;
+        private IPatientSignUpRepository _patientRepository;
 
         [SetUp]
         public void Setup()
         {
             _appointmentRepository = new AppointmentSignUpRepository(_context);
             RegisterObject(typeof(IAppointmentSignUpRepository), _appointmentRepository);
+
+            _patientRepository = new PatientSignUpRepository(_context);
+            RegisterObject(typeof(IPatientSignUpRepository), _patientRepository);
+
+            Register<IPatientSignUpRepository, PatientSignUpRepository>();
+            _patientRepository = GetService<IPatientSignUpRepository>();
 
             Register<IAppointmentSignUpBusiness, AppointmentSignUpBusiness>();
             _appointmentBusiness = GetService<IAppointmentSignUpBusiness>();

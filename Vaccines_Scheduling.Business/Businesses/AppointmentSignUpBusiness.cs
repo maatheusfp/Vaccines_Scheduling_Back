@@ -13,50 +13,52 @@ namespace Vaccines_Scheduling.Business.Businesses
     public class AppointmentSignUpBusiness : IAppointmentSignUpBusiness
     {
         private static readonly ILog _log = LogManager.GetLogger(typeof(AppointmentSignUpBusiness));
-        private readonly IAppointmentSignUpRepository _appointmentRepository; 
+        private readonly IAppointmentSignUpRepository _appointmentRepository;
+        private readonly IPatientSignUpRepository _patientRepository;
 
         public AppointmentSignUpBusiness(IAppointmentSignUpRepository appointmentRepository, IPatientSignUpRepository patientRepository)
         {
             _appointmentRepository = appointmentRepository;
+            _patientRepository = patientRepository;
         }
-        public async  Task<List<AppointmentDTO>> DeleteAppointment(int appointmentId, string patientId)
+        public async  Task<List<AppointmentDTO>> DeleteAppointment(AppointmentChangeModel appointment, string patientId)
         {
-            var appointment = await _appointmentRepository.GetById(appointmentId);
             var intId = Int32.Parse(patientId);
 
-            if (appointment == null || appointment.IdPatient != intId)
-            {
-                _log.InfoFormat("appointment does not exist");
-                throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));              
-            }
-            await _appointmentRepository.Delete(appointment);
-            _log.InfoFormat("O agendamento do dia '{0}' e horario '{1}' foi removido.", appointment.Date, appointment.Time);
+            var patient = await _patientRepository.GetById(intId);
+            var patientAppointments = await _appointmentRepository.GetPatientAppointmentsById(intId);
+            var filteredAppointments = patientAppointments.Where(a => a.Date == appointment.Date && a.Time == appointment.Time).ToList();
+
+            AppointmentValidate(patient, patientAppointments, filteredAppointments);
+
+            var deletedAppointment = BuildAppointment(filteredAppointments[0], intId, appointment.Status);
+
+            await _appointmentRepository.Delete(deletedAppointment);
             
             return await _appointmentRepository.GetPatientAppointmentsById(intId);
         }
 
-        public async Task<List<AppointmentDTO>> ChangeAppointmentStatus(string patientId, int appointmentId, string status)
+        public async Task<List<AppointmentDTO>> ChangeAppointmentStatus(AppointmentChangeModel appointment, string id)
         {
-            var appointment = await _appointmentRepository.GetById(appointmentId);
-            var intId = Int32.Parse(patientId);
+            var intId = Int32.Parse(id);
 
-            if (appointment == null || appointment.IdPatient != intId)
-            {
-                _log.InfoFormat("appointment does not exist");
-                throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
-            }
-            else
-            {
-                appointment.Status = status;
-                await _appointmentRepository.Update(appointment);
-            }
-            return await _appointmentRepository.GetPatientAppointmentsById(intId);
+            var patient = await _patientRepository.GetById(intId);
+            var patientAppointments = await _appointmentRepository.GetPatientAppointmentsById(intId);
+            var filteredAppointments = patientAppointments.Where(a => a.Date == appointment.Date && a.Time == appointment.Time).ToList();
+
+            AppointmentValidate(patient, patientAppointments, filteredAppointments);
+
+            var newAppointment = BuildAppointment(filteredAppointments[0], intId, appointment.Status);
+
+            await _appointmentRepository.Update(newAppointment);
+
+            return await _appointmentRepository.GetPatientAppointmentsById(intId); ;
         }
 
         public async Task<List<AppointmentDTO>> GetPatientAppointments(string id)
         {
             var intId = Int32.Parse(id);
-            var patient = await _appointmentRepository.GetById(intId);
+            var patient = await _patientRepository.GetById(intId);
             if (patient == null)
             {
                 _log.InfoFormat("Patient does not exist");
@@ -71,7 +73,7 @@ namespace Vaccines_Scheduling.Business.Businesses
             var patientIntId = Int32.Parse(patientId);
             var appointments = await _appointmentRepository.GetAppointmentsByDate(newAppointment.Date);
 
-            AppointmentsValidator(appointments, newAppointment.Time);
+            InsertAppointmentValidate(appointments, newAppointment.Time);
 
             var appointment = BuildAppointment(newAppointment, patientIntId);
 
@@ -80,16 +82,25 @@ namespace Vaccines_Scheduling.Business.Businesses
             return await _appointmentRepository.GetPatientAppointmentsById(patientIntId);
         }
 
-        public static void AppointmentsValidator(List<AppointmentDTO> appointments, TimeOnly time)
+        // validate methods
+        public static void AppointmentValidate(Patient patient, List<AppointmentDTO> patientAppointments, List<AppointmentDTO> filteredAppointments)
+        {
+            if (patient == null) throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
+
+            if (patientAppointments == null) throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
+
+            if (filteredAppointments.Count == 0) throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
+        }
+        public static void InsertAppointmentValidate(List<AppointmentDTO> appointments, TimeOnly time)
         {      
             if (appointments.Count > 20) throw new BusinessException(string.Format(InfraMessages.FullDay));
             
             var appointmentsAtSameTime = appointments.Where(a => a.Time == time).ToList();
 
             if (appointmentsAtSameTime.Count > 1) throw new BusinessException(string.Format(InfraMessages.FullTime, time));
-            
         }
 
+        // build methods
         public static Appointment BuildAppointment(AppointmentSignUpModel newAppointment, int id)
         {
             var Appointment = new Appointment
@@ -98,6 +109,19 @@ namespace Vaccines_Scheduling.Business.Businesses
                 Date = newAppointment.Date,
                 Time = newAppointment.Time,
                 Status = "Não Realizado",
+                CreationTime = DateTime.Now
+            };
+            return Appointment;
+        }
+        public static Appointment BuildAppointment(AppointmentDTO newAppointment, int id, string status)
+        {
+            var Appointment = new Appointment
+            {
+                Id = newAppointment.Id,
+                IdPatient = id,
+                Date = newAppointment.Date,
+                Time = newAppointment.Time,
+                Status = status,
                 CreationTime = DateTime.Now
             };
             return Appointment;

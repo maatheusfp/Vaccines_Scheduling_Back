@@ -33,6 +33,7 @@ namespace Vaccines_Scheduling.Repository.Repositories
             var query = EntitySet.Where(e => e.IdPatient == id)
                                  .Select(e => new AppointmentDTO
                                  {
+                                     Id = e.Id,
                                      Date = e.Date,
                                      Time = e.Time,
                                      Status = e.Status,

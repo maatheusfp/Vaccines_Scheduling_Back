@@ -16,7 +16,7 @@ namespace Vaccines_Scheduling.Validators.Fluent
             RuleFor(t => t.Login)
                 .NotNull().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .NotEmpty().WithMessage(string.Format(InfraMessages.NeedToFill))
-                .MinimumLength(5).WithMessage(string.Format(InfraMessages.MinSize, "Login", 3))
+                .MinimumLength(3).WithMessage(string.Format(InfraMessages.MinSize, "Login", 3))
                 .MaximumLength(50).WithMessage(string.Format(InfraMessages.MaxSize, "Login", 50));
 
             RuleFor(t => t.Birthday)
