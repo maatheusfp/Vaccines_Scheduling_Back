@@ -39,10 +39,11 @@ namespace Vaccines_Scheduling.UnitTest
                 .Options;
 
             _context = new Context(options);
+            ServiceCollection.AddSingleton(_context);
 
             if (_context.Database.IsInMemory())
             {
-                _context.Database.EnsureCreated();
+                _context.Database.EnsureDeleted();
             }
         }
 

@@ -39,7 +39,7 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
                 PatientName = "Test",
                 Birthday = DateOnly.Parse("2024-05-21"),
                 Date = DateOnly.Parse("2024-07-13"),
-                Time = TimeOnly.Parse("18")
+                Time = TimeOnly.Parse("18:00")
             };
             // Act
             async Task action() => await _appointmentBusiness.InsertAppointment(appointment, id);
