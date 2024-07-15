@@ -10,7 +10,7 @@ namespace Vaccines_Scheduling.Webapi.Configuration
             services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientLoginValidator>());
             services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<PatientSignUpValidator>());
             services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<AppointmentSignUpValidator>());
-
+            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<ChangeAppointmentValidator>());
         }
     }
 }

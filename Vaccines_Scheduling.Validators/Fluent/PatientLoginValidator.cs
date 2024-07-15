@@ -4,7 +4,7 @@ using Vaccines_Scheduling.Utility.Messages;
 
 namespace Vaccines_Scheduling.Validators.Fluent
 {
-    public class PatientLoginValidator : AbstractValidator<PatientSignUpModel>
+    public class PatientLoginValidator : AbstractValidator<PatientLoginModel>
     {
         public PatientLoginValidator() 
         {

@@ -19,16 +19,6 @@ namespace Vaccines_Scheduling.Repository.Repositories
             return query.FirstOrDefaultAsync(e => e.Login.ToLower() == login.ToLower());
         }
 
-        public Task<Patient> GetPatientById(int id)
-        {
-            var query = EntitySet.AsQueryable();
-
-            //if (asNoTracking)
-            //    query = query.AsNoTracking();
-
-            return query.FirstOrDefaultAsync(e => e.Id == id);
-        }
-
         public Task<List<PatientDTO>> ListPatient(string login)
         {
             var query = EntitySet.Where(e => e.Login.ToLower() == login.ToLower())

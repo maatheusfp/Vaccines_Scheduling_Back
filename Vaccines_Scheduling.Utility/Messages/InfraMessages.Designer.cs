@@ -79,6 +79,15 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Birthday and patient birthday doesn&apos;t match.
+        /// </summary>
+        public static string InvalidBdayMatch {
+            get {
+                return ResourceManager.GetString("InvalidBdayMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Birthday can&apos;t be in the future. .
         /// </summary>
         public static string InvalidBirthday {
@@ -129,6 +138,15 @@ namespace Vaccines_Scheduling.Utility.Messages {
         public static string InvalidMonth {
             get {
                 return ResourceManager.GetString("InvalidMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name and patient doesn&apos;t match.
+        /// </summary>
+        public static string InvalidName {
+            get {
+                return ResourceManager.GetString("InvalidName", resourceCulture);
             }
         }
         

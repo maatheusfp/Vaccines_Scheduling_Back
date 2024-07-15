@@ -11,5 +11,7 @@ namespace Vaccines_Scheduling.Repository.Interface.IRepositories
     {
         Task Insert(TEntity entity);
         Task Delete(TEntity entity);
+        Task Update(TEntity entity);
+        Task <TEntity> GetById(int id);
     }
 }
