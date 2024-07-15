@@ -68,6 +68,19 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "FluentValidation/11.9.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "log4net/2.0.17": {
         "type": "package",
         "dependencies": {
@@ -1530,6 +1543,21 @@
         "runtime": {
           "bin/placeholder/Vaccines_Scheduling.Utility.dll": {}
         }
+      },
+      "Vaccines_Scheduling.Validators/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.9.2",
+          "Vaccines_Scheduling.Entity": "1.0.0",
+          "Vaccines_Scheduling.Utility": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Vaccines_Scheduling.Validators.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Vaccines_Scheduling.Validators.dll": {}
+        }
       }
     }
   },
@@ -1649,6 +1677,31 @@
         "coverlet-icon.png",
         "coverlet.collector.3.1.2.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "FluentValidation/11.9.2": {
+      "sha512": "XeHp9LvFvu1fsQ/NvDCymV02GOCB1nz7ZUhfpI3uMhCcHTkV1K5bMkv+Nc/kuNYyAsX5+5bcmUanIEMd5QN+Eg==",
+      "type": "package",
+      "path": "fluentvalidation/11.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.9.2.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "log4net/2.0.17": {
@@ -4189,6 +4242,11 @@
       "type": "project",
       "path": "../Vaccines_Scheduling.Utility/Vaccines_Scheduling.Utility.csproj",
       "msbuildProject": "../Vaccines_Scheduling.Utility/Vaccines_Scheduling.Utility.csproj"
+    },
+    "Vaccines_Scheduling.Validators/1.0.0": {
+      "type": "project",
+      "path": "../Vaccines_Scheduling.Validators/Vaccines_Scheduling.Validators.csproj",
+      "msbuildProject": "../Vaccines_Scheduling.Validators/Vaccines_Scheduling.Validators.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4202,6 +4260,7 @@
       "Vaccines_Scheduling.Business >= 1.0.0",
       "Vaccines_Scheduling.Business.Interface >= 1.0.0",
       "Vaccines_Scheduling.Repository >= 1.0.0",
+      "Vaccines_Scheduling.Validators >= 1.0.0",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -4240,6 +4299,9 @@
             },
             "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj": {
               "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Repository\\Vaccines_Scheduling.Repository.csproj"
+            },
+            "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Validators\\Vaccines_Scheduling.Validators.csproj": {
+              "projectPath": "C:\\Users\\mathe\\Desktop\\Vaccines\\Vaccines_Scheduling.Validators\\Vaccines_Scheduling.Validators.csproj"
             }
           }
         }

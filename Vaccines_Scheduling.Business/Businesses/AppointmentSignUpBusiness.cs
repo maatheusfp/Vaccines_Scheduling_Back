@@ -72,8 +72,9 @@ namespace Vaccines_Scheduling.Business.Businesses
         {
             var patientIntId = Int32.Parse(patientId);
             var appointments = await _appointmentRepository.GetAppointmentsByDate(newAppointment.Date);
+            var patient = await _patientRepository.GetById(patientIntId);
 
-            InsertAppointmentValidate(appointments, newAppointment.Time);
+            InsertAppointmentValidate(appointments, newAppointment, patient);
 
             var appointment = BuildAppointment(newAppointment, patientIntId);
 
@@ -91,13 +92,22 @@ namespace Vaccines_Scheduling.Business.Businesses
 
             if (filteredAppointments.Count == 0) throw new BusinessException(string.Format(InfraMessages.NotFoundAppointment));
         }
-        public static void InsertAppointmentValidate(List<AppointmentDTO> appointments, TimeOnly time)
-        {      
-            if (appointments.Count > 20) throw new BusinessException(string.Format(InfraMessages.FullDay));
-            
-            var appointmentsAtSameTime = appointments.Where(a => a.Time == time).ToList();
+        public static void InsertAppointmentValidate(List<AppointmentDTO> appointments, AppointmentSignUpModel newAppointment, Patient patient)
+        {   
+            if (patient == null) throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
 
-            if (appointmentsAtSameTime.Count > 1) throw new BusinessException(string.Format(InfraMessages.FullTime, time));
+            if (patient.Name != newAppointment.PatientName) throw new BusinessException(string.Format(InfraMessages.InvalidName));
+
+            var dateOnly = newAppointment.Birthday;
+            var dateTime = dateOnly.ToDateTime(TimeOnly.MinValue);
+
+            if (dateTime != patient.Birthday) throw new BusinessException(string.Format(InfraMessages.InvalidBdayMatch));
+
+            if (appointments.Count >= 20) throw new BusinessException(string.Format(InfraMessages.FullDay));
+            
+            var appointmentsAtSameTime = appointments.Where(a => a.Time == newAppointment.Time).ToList();
+
+            if (appointmentsAtSameTime.Count > 1) throw new BusinessException(string.Format(InfraMessages.FullTime, newAppointment.Time));
         }
 
         // build methods

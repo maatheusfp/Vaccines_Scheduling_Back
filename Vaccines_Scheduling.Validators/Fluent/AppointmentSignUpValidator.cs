@@ -32,7 +32,7 @@ namespace Vaccines_Scheduling.Validators.Fluent
             RuleFor(t => t.PatientName)
                 .NotNull().WithMessage(string.Format(InfraMessages.NeedToFill))
                 .NotEmpty().WithMessage(string.Format(InfraMessages.NeedToFill))
-                .MinimumLength(5).WithMessage(string.Format(InfraMessages.MinSize, "Name", 3));
+                .MinimumLength(3).WithMessage(string.Format(InfraMessages.MinSize, "Name", 3));
         }
 
         private bool BeAValidDate(DateOnly date)

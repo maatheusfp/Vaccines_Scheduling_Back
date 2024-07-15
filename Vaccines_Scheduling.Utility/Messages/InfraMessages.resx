@@ -123,6 +123,9 @@
   <data name="FullTime" xml:space="preserve">
     <value>There are already 2 appointments in '{0}'.</value>
   </data>
+  <data name="InvalidBdayMatch" xml:space="preserve">
+    <value>Birthday and patient birthday doesn't match</value>
+  </data>
   <data name="InvalidBirthday" xml:space="preserve">
     <value>Birthday can't be in the future. </value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="InvalidMonth" xml:space="preserve">
     <value>Invalid Month</value>
+  </data>
+  <data name="InvalidName" xml:space="preserve">
+    <value>Name and patient doesn't match</value>
   </data>
   <data name="InvalidTime" xml:space="preserve">
     <value>Invalid Time</value>
