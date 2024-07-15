@@ -7,7 +7,7 @@ using Vaccines_Scheduling.Utility.Attributes;
 namespace Vaccines_Scheduling.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PatientSignUpController : ControllerBase
     {
         private readonly IPatientSignUpBusiness _patientBusiness;
