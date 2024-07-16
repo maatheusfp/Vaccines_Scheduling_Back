@@ -5,8 +5,7 @@ namespace Vaccines_Scheduling.Business.Interface.IBusiness
 {
     public interface IPatientSignUpBusiness
     {
-        Task<List<PatientDTO>> FindPatient(string login);
-        Task<List<PatientDTO>> DeletePatient(string login);
+        Task<string> DeletePatient(string id);
         Task<List<PatientDTO>> InsertPatient(PatientSignUpModel newPatient);
     }
 }

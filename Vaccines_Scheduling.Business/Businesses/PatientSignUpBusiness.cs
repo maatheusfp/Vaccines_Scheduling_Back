@@ -13,34 +13,33 @@ namespace Vaccines_Scheduling.Business.Businesses
 {
     public class PatientSignUpBusiness : IPatientSignUpBusiness
     {   
-        private static readonly ILog _log = LogManager.GetLogger(typeof(PatientSignUpBusiness));
         private readonly IPatientSignUpRepository _patientRepository;
-        public PatientSignUpBusiness(IPatientSignUpRepository patientRepository)
+        private readonly IAppointmentSignUpRepository _appointmentRepository;
+        public PatientSignUpBusiness(IPatientSignUpRepository patientRepository, IAppointmentSignUpRepository appointmentRepository)
         {
             _patientRepository = patientRepository;
+            _appointmentRepository = appointmentRepository;
         }
-        public async Task<List<PatientDTO>> DeletePatient(string login)
+        public async Task<string> DeletePatient(string id)
         {
-            var patient = await _patientRepository.GetPatient(login);
+            var intId = Int32.Parse(id);
+            var patient = await _patientRepository.GetById(intId);
             if (patient == null)
             {
                 throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
+
+            var appointments = _appointmentRepository.GetPatientAppointmentsById(intId);
+
+            if (appointments != null)
+            {
+                throw new BusinessException(string.Format(InfraMessages.PatientHasAppointments));
+            }
+
 
             await _patientRepository.Delete(patient);
-            _log.InfoFormat("O usuario '{0}' foi removido.", patient.Name);
 
-            return await _patientRepository.GetAll();
-        }
-        public async Task<List<PatientDTO>> FindPatient(string login)
-        {
-            var patient = await _patientRepository.GetPatient(login);
-            if (patient == null)
-            {
-                throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
-            }
-
-            return await _patientRepository.ListPatient(login); 
+            return string.Format(InfraMessages.DeleteSuccessfull);
         }
 
         public async Task<List<PatientDTO>> InsertPatient(PatientSignUpModel newPatient)
@@ -56,7 +55,7 @@ namespace Vaccines_Scheduling.Business.Businesses
 
             await _patientRepository.Insert(patient);
 
-            return await _patientRepository.GetAll();      
+            return await _patientRepository.ListPatient(patient.Login);      
         }
 
         public static Patient BuildPatient(PatientSignUpModel newPatient)

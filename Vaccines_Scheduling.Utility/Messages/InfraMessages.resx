@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DeleteSuccessfull" xml:space="preserve">
+    <value>Deleted Successfull</value>
+  </data>
   <data name="FullDay" xml:space="preserve">
     <value>There are already 20 appoinments for this day'.</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="NotFoundPatient" xml:space="preserve">
     <value>Patient does not exist.</value>
+  </data>
+  <data name="PatientHasAppointments" xml:space="preserve">
+    <value>Please delete your appointments first.</value>
   </data>
   <data name="RegisteredPatient" xml:space="preserve">
     <value>Patient already exists.</value>

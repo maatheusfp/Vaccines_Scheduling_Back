@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Vaccines_Scheduling.Business.Interface.IBusiness;
 using Vaccines_Scheduling.Entity.DTO;
 using Vaccines_Scheduling.Entity.Model;
@@ -16,17 +18,13 @@ namespace Vaccines_Scheduling.Controllers
             _patientBusiness = patientBusiness;
         }
 
-        [HttpGet("FindPatient")]
-        public async Task<List<PatientDTO>> FindPatient(string login)
-        {
-            return await _patientBusiness.FindPatient(login);
-        }
-
+        [Authorize]
         [HttpDelete("DeletePatient")]
         [MandatoryTransactions]
-        public async Task<List<PatientDTO>> DeletePatient(string login)
+        public async Task<string> DeletePatient()
         {
-            return await _patientBusiness.DeletePatient(login);
+            var userId = User.FindFirst(ClaimTypes.Sid)?.Value;
+            return await _patientBusiness.DeletePatient(userId);
         }
 
         [HttpPost("SignUp")]
