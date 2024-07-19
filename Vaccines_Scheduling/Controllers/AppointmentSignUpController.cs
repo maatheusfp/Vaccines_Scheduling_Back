@@ -9,7 +9,7 @@ using Vaccines_Scheduling.Utility.Attributes;
 namespace Vaccines_Scheduling.Webapi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AppointmentSignUpController : ControllerBase
     {
         private readonly IAppointmentSignUpBusiness _appointmentSignUpBusiness;

@@ -12,7 +12,6 @@ namespace Vaccines_Scheduling.Business.Businesses
 {
     public class AppointmentSignUpBusiness : IAppointmentSignUpBusiness
     {
-        private static readonly ILog _log = LogManager.GetLogger(typeof(AppointmentSignUpBusiness));
         private readonly IAppointmentSignUpRepository _appointmentRepository;
         private readonly IPatientSignUpRepository _patientRepository;
 
@@ -61,11 +60,10 @@ namespace Vaccines_Scheduling.Business.Businesses
             var patient = await _patientRepository.GetById(intId);
             if (patient == null)
             {
-                _log.InfoFormat("Patient does not exist");
                 throw new BusinessException(string.Format(InfraMessages.NotFoundPatient));
             }
-            var query = await _appointmentRepository.GetPatientAppointmentsById(intId);
-            return query;
+            return await _appointmentRepository.GetPatientAppointmentsById(intId);
+
         }
 
         public async Task<List<AppointmentDTO>> InsertAppointment(AppointmentSignUpModel newAppointment,  string patientId)
@@ -118,7 +116,7 @@ namespace Vaccines_Scheduling.Business.Businesses
                 IdPatient = id,
                 Date = newAppointment.Date,
                 Time = newAppointment.Time,
-                Status = "Não Realizado",
+                Status = "Not Completed",
                 CreationTime = DateTime.Now
             };
             return Appointment;

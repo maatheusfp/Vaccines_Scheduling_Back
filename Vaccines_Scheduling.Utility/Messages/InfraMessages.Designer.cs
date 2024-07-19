@@ -61,6 +61,15 @@ namespace Vaccines_Scheduling.Utility.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Deleted Successfull.
+        /// </summary>
+        public static string DeleteSuccessfull {
+            get {
+                return ResourceManager.GetString("DeleteSuccessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a There are already 20 appoinments for this day&apos;..
         /// </summary>
         public static string FullDay {
@@ -219,6 +228,15 @@ namespace Vaccines_Scheduling.Utility.Messages {
         public static string NotFoundPatient {
             get {
                 return ResourceManager.GetString("NotFoundPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Please delete your appointments first..
+        /// </summary>
+        public static string PatientHasAppointments {
+            get {
+                return ResourceManager.GetString("PatientHasAppointments", resourceCulture);
             }
         }
         

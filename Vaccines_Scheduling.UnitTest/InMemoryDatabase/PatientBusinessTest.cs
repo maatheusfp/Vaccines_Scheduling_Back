@@ -135,38 +135,6 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
             Assert.IsTrue(exception.Message == string.Format(InfraMessages.RegisteredPatient));
         }
 
-        // Patient Find
-        [Test]
-        public async Task PatientFind_success()
-        {
-            // Arrange
-            var patient = new PatientModelBuilder().Build();
-            var validator = new PatientSignUpValidator();
-
-            var result = validator.Validate(patient);
-            Assert.IsTrue(result.IsValid);
-
-            await _patientBusiness.InsertPatient(patient);
-
-            // Act 
-            async Task action() => await _patientBusiness.FindPatient(patient.Login);
-
-            // Assert
-            Assert.DoesNotThrowAsync(action);
-        }
-
-        [TestCase("123123")]
-        public async Task PatientFind_NotFound(string login)
-        {
-            // Arrange
-            
-            // Act 
-            async Task action() => await _patientBusiness.FindPatient(login);
-
-            // Assert
-            var exception = Assert.ThrowsAsync<BusinessException>(action);
-            Assert.IsTrue(exception.Message == string.Format(InfraMessages.NotFoundPatient));
-        }
 
         // Patient Delete
         [Test]
@@ -182,19 +150,19 @@ namespace Vaccines_Scheduling.UnitTest.InMemoryDatabase
             await _patientBusiness.InsertPatient(patient);
 
             // Act 
-            async Task action() => await _patientBusiness.DeletePatient(patient.Login);
+            async Task action() => await _patientBusiness.DeletePatient("1");
 
             // Assert
             Assert.DoesNotThrowAsync(action);
         }
 
         [TestCase("123123")]
-        public async Task PatientDelete_NotFound(string login)
+        public async Task PatientDelete_NotFound(string id)
         {
             // Arrange
 
             // Act 
-            async Task action() => await _patientBusiness.DeletePatient(login);
+            async Task action() => await _patientBusiness.DeletePatient(id);
 
             // Assert
             var exception = Assert.ThrowsAsync<BusinessException>(action);

@@ -67,6 +67,7 @@ namespace Vaccines_Scheduling
             });
 
             app.UseRouting();
+            app.UseCors("CORS_POLICY");
 
             app.UseAuthentication();
             app.UseAuthorization();
