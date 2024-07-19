@@ -23,7 +23,8 @@ namespace Vaccines_Scheduling.Repository.Repositories
                                      Time = e.Time,
                                      Status = e.Status,
                                  })
-                                 .OrderBy(e => e.Date);
+                                 .OrderBy(e => e.Date)
+                                 .ThenBy(e => e.Time);
 
             return query.ToListAsync();
         }
@@ -38,7 +39,8 @@ namespace Vaccines_Scheduling.Repository.Repositories
                                      Time = e.Time,
                                      Status = e.Status,
                                  })
-                                 .OrderBy(e => e.Date);
+                                 .OrderBy(e => e.Date)
+                                 .ThenBy(e => e.Time);
 
             return query.ToListAsync();
         }
