@@ -31,7 +31,7 @@ namespace Vaccines_Scheduling.Business.Businesses
 
             var appointments = _appointmentRepository.GetPatientAppointmentsById(intId);
 
-            if (appointments != null)
+            if (appointments.Result.Count > 0)
             {
                 throw new BusinessException(string.Format(InfraMessages.PatientHasAppointments));
             }
