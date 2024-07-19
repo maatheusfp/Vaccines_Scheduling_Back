@@ -116,7 +116,7 @@ namespace Vaccines_Scheduling.Business.Businesses
                 IdPatient = id,
                 Date = newAppointment.Date,
                 Time = newAppointment.Time,
-                Status = "Não Realizado",
+                Status = "Not Completed",
                 CreationTime = DateTime.Now
             };
             return Appointment;
