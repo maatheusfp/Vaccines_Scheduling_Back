@@ -6,7 +6,7 @@
 3. Validações utilizando o FluentValidation (https://docs.fluentvalidation.net/en/latest/);
 4. Uso de Middleware para evitar repetição de try catch ao longo do código;
 5. Uso de Mandatory Transaction para dar rollback nas alterações caso seja acionado alguma exceção na rota.
-6. Autentiacação de Login feita utilizando Token JWT Bearer.  
+6. Autenticação de Login feita utilizando Token JWT Bearer.  
 
 ### Como rodar
 1. De início, clone o repositório na pasta de sua preferência. Recomendo clonar em uma pasta que não possua outro repositório para evitar conflitos.
