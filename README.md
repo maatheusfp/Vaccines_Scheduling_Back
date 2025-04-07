@@ -16,10 +16,10 @@ SQL Server Mananagement studio 20, crie o banco de dados com a query: https://gi
 4. Com o banco criado, basta rodar a aplicação. A configuração para lançar no navegador está desativada, então será necessário abri-lo manualmente no navegador. A porta está presente 
 no arquivo de launchSettings.json. (https://localhost:7175)
 
-**OBS:** Esse é o meu primeiro projeto em .Net, então é bem provável que haja diversas possibilidades de melhorias. Fique à vontade para dar feedbacks! 
-
 ### Possíveis Problemas 
 Ao rodar os testes simultaneamente, alguns alegam problemas de trackeamento ou alguma exceção inesperada. Se rodar aqueles que não funcionarem isoladamente (teste unitário) tendem a funcionar
 normalmente. 
+
+**OBS:** Esse é o meu primeiro projeto em .Net, então é bem provável que haja diversas possibilidades de melhorias. Fique à vontade para dar feedbacks! 
 
 
